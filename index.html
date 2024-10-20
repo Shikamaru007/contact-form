@@ -4,10 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/92fa8ead7f.js" crossorigin="anonymous"></script>
     <script defer src="index.js"></script>
     <title>Contact Form</title>
 </head>
 <body>
-    
+    <main class="container">
+        <h1>Contact Us</h1>
+        <form action="\" method="post" id="form">
+
+            <div class="names">
+                <div class="firstName">
+                    <label for="firstName">First Name <span class="asterik">*</span></label>
+                    <input type="text" name="firstName" id="firstName" class="input">
+                    <p class="errorMsg empty">This field is required</p>
+                </div>
+                <div class="lastName">
+                    <label for="lastName">Last Name <span class="asterik">*</span></label>
+                    <input type="text" name="lastName" id="lastName" class="input">
+                    <p class="errorMsg empty">This field is required</p>
+                </div>
+            </div>
+
+            <div class="email">
+                <label for="email">Email Address <span class="asterik">*</span></label>
+                <input type="text" name="email" id="email" class="input">
+                <p class="errorMsg empty">This field is required</p>
+            </div>
+
+            <div class="queryType">
+
+                <label>Query Type <span class="asterik">*</span></label>
+
+                <div class="queryOptionTile">
+                    <input type="radio" name="queryType" value="generalEnquiry" id="generalEnquiry">
+                    <label for="generalEnquiry">General Enquiry</label>
+                </div>
+                <div class="queryOptionTile">
+                    <input type="radio" name="queryType" value="supportRequest" id="supportRequest">
+                    <label for="supportRequest">Support Request</label>
+                </div>
+
+                <p class="errorMsg">  Please select a query type</p>
+
+            </div>
+
+            <div class="messgae">
+                <label for="textArea">Message <span class="asterik">*</span></label>    
+                <textarea name="message" id="textArea" class="textArea input"></textarea>
+                <p class="errorMsg empty">This field is required</p>            
+            </div>
+
+            <div class="consent">
+                <div>
+                    <input type="checkbox" id="consent" name="consent">
+                    <label for="consent">I consent to being contacted by the team <span class="asterik">*</span></label>
+                </div>
+                <p class="errorMsg">To submit this form, please consent to being contacted</p> 
+            </div>
+
+            <button class="btn">Submit</button>
+
+        </form>
+        <div class="successMsg hidden" id="successMessage">
+            <div class="msgHead">
+                <img src="images/icon-success-check.svg" alt="success check">
+                <span>Message Sent!</span>
+            </div>
+            <p>Thanks for completing the form. We'll be in touch soon!</p>
+        </div>
+    </main>    
 </body>
 </html>

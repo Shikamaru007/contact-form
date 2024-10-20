@@ -1,7 +1,276 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
-/* font-family: "Karla", sans-serif; */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+body {
+    width: 100%;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    font-family: "Karla", sans-serif;
+    background-color: hsl(148, 38%, 91%);
+}
+.container {
+    background-color: white;
+    color: hsl(187, 24%, 22%);
+    padding: 2rem;
+    border-radius: 15px;
+    font-weight: 400;
+    width: 93%;
+    max-width: 28rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.names {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.firstName, .lastName, .email, .queryType, .messgae {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+.firstName.error .errorMsg,
+.messgae.error .errorMsg,
+.lastName.error .errorMsg,
+.email.error .errorMsg,
+.queryType.error .errorMsg,
+.consent.error .errorMsg{
+    display: inline-block;
+}
+.queryType{
+    gap: .8rem;
+}
+h1 {
+    font-weight: 700;
+    color: hsl(187, 24%, 22%);
+    margin-bottom: 2rem;
+}
+input[type=text], .textArea{
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: transparent;
+    border: 1px solid hsl(186, 15%, 59%);
+    border-radius: 8px;
+    cursor: pointer;
+}
+input[type=text]:focus,
+.textArea:focus{
+    outline: 1px solid hsl(169, 82%, 27%);
+    border: none;
+}
+input[type=radio]{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1px solid hsl(186, 15%, 59%);
+    border-radius: 50%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+input[type=radio]::before{
+    content: "";
+    width: 60%;
+    height: 60%;
+    background-color: hsl(169, 82%, 27%);
+    position: absolute;
+    border-radius: 50%;
+    margin: auto;
+    display: none;
+}
+input[type=radio]:checked{
+    border: 2px solid hsl(169, 82%, 27%);
+}
+input[type=radio]:checked::before {
+    display: block;
+}
+input[type=checkbox]{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 1.2rem;
+    width: 1.2rem;
+    border: 1px solid hsl(186, 15%, 59%);
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+input[type=checkbox]::before{
+    content: '\f00c';
+    font: var(--fa-font-solid);
+    font-size: .8rem;
+    position: absolute; 
+    display: none;
+    color: white;
+}
+input[type=checkbox]:checked{
+    background-color: hsl(169, 82%, 27%);
+    border: 1px solid hsl(169, 82%, 27%);
+}
+input[type=checkbox]:checked::before{
+    display: block;
+}
+.textArea{
+    height: 17rem;
+}
+
+label{
+    line-height: 1.55;
+    cursor: pointer;
+}
+.queryOptionTile {
+    padding: .9rem 1.5rem;
+    border: 1px solid hsl(186, 15%, 59%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.queryOptionTile.selected {
+    background-color: hsl(148, 38%, 91%);
+    border: 1px solid hsl(169, 82%, 27%);
+}
+.errorMsg {
+    color: hsl(0, 66%, 54%);
+    display: none;
+}
+.consent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+}
+.consent div {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.btn {
+    font-family: inherit;
+    width: 100%;
+    padding: 1.4rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: hsl(169, 82%, 27%);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: hsl(169, 81%, 11%);
+}
+.successMsg{
+    background-color: hsl(168, 13%, 29%);
+    color: white;
+    position: fixed;
+    width: 80%;
+    max-width: 29rem;
+    top: 1rem;
+    right: 0;
+    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-inline: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: top .3s ease-in;
+    
+}
+.successMsg.hidden {
+    top: -10rem;
+    transition: top .3s ease-out;
+}
+.msgHead {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+.msgHead span {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.successMsg p {
+    font-weight: 400;
+    color: hsl(168, 40%, 88%);
+}
+
+
+@media screen and (min-width:680px){
+    .container{
+        max-width: 32rem;
+    }
+}
+
+@media screen and (min-width:781px){
+    body {
+        min-height: 100vh;
+    }
+    .container{
+        width: 90%;
+        max-width: 45rem;
+        align-self: center;
+        justify-self: center;
+        padding: 2.5rem;
+    }
+    .names {
+        flex-direction: row;
+    }
+    input[type=radio]{
+        width: 1.3rem;
+    }
+    .firstName,.lastName{
+        flex: 1;
+    }
+    .queryType{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .queryType label {
+        width: 100%;
+    }
+    .queryOptionTile {
+        flex: 1;
+    }
+    .queryType .errorMsg{
+        width: 100%;
+    }
+    .messgae {
+        height: 8rem;
+    }
+    .btn {
+        padding: 1rem;
+    }
+}
+
+@media screen and (min-width:930px){
+    .successMsg{
+        right: auto;
+        left: 50%;
+    }
+}
+
+@media screen and (min-width:1024px){
+    .container{
+        max-width: 50rem;
+    }
 }
